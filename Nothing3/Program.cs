@@ -6,7 +6,7 @@ namespace Nothing3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!Good morning 19 august");
+            Console.WriteLine("Hello World!Good evening 19 august");
         }
     }
 }
