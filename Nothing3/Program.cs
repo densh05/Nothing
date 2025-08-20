@@ -4,15 +4,11 @@ namespace Nothing3
 {
     class Information
     {
-        private string index;
-        private string country;
-        private string city;
-        private string house;
 
-        public string Index { get { return index; } private set { index = value; } }
-        public string Country { get { return country; } private set { country = value; } }
-        public string City { get { return city; } private set { city = value; } }
-        public string House { get { return house; } private set { house = value; } }
+        public string Index { get; private set; }
+        public string Country { get; private set; }
+        public string City { get; private set; }
+        public string House { get; private set; }
 
         public Information(string index, string country, string city, string house)
         {
