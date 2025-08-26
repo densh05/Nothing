@@ -16,13 +16,13 @@ namespace Nothing
             this.lastName = lastName;
         }
 
-        public void Information(string position, int experience)
+        public void JobInformation(string position, int experience)
         {
             this.position = position;
             this.experience = experience;
         }
 
-        public double WorkerSalary()
+        public double CalculateSalary()
         {
             double baseSalary;
 
@@ -37,10 +37,10 @@ namespace Nothing
                 case "Owner":
                     baseSalary = 300000;
                     break;
-                 case "Any worker":
-                        baseSalary = 1000;
+                case "Any worker":
+                    baseSalary = 1000;
                     break;
-                    default:
+                default:
                     baseSalary = 100;
                     break;
             }
@@ -49,9 +49,9 @@ namespace Nothing
             return salary;
         }
 
-        public double TaxMoney()
+        public double CalculateTax()
         {
-          return WorkerSalary() * 0.25;
+          return CalculateSalary() * 0.25;
         }
 
         public void ShowInformation()
