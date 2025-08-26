@@ -4,29 +4,29 @@ namespace Nothing
 {
     class Employee
     {
-        private string firstName;
-        private string lastName;
-        private string position;
-        private int experience;
+        private string _firstName;
+        private string _lastName;
+        private string _position;
+        private int _experience;
 
 
         public Employee(string firstName, string lastName)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
+            _firstName = firstName;
+            _lastName = lastName;
         }
 
-        public void JobInformation(string position, int experience)
+        public void SetlInformation(string position, int experience)
         {
-            this.position = position;
-            this.experience = experience;
+            _position = position;
+            _experience = experience;
         }
 
         public double CalculateSalary()
         {
             double baseSalary;
 
-            switch (position)
+            switch (_position)
             {
                 case "Player":
                     baseSalary = 10000;
@@ -45,7 +45,7 @@ namespace Nothing
                     break;
             }
 
-            double salary = baseSalary + (baseSalary * 0.10 * experience);
+            double salary = baseSalary + (baseSalary * 0.10 * _experience);
             return salary;
         }
 
@@ -56,11 +56,11 @@ namespace Nothing
 
         public void ShowInformation()
         {
-            Console.WriteLine($"Football player {firstName} {lastName}");
-            Console.WriteLine($"Works like {position}");
-            Console.WriteLine($"With {experience} years experience");
-            Console.WriteLine($"Get {WorkerSalary()} money");
-            Console.WriteLine($"And pay {TaxMoney()} taxes");
+            Console.WriteLine($"Football player {_firstName} {_lastName}");
+            Console.WriteLine($"Works like {_position}");
+            Console.WriteLine($"With {_experience} years experience");
+            Console.WriteLine($"Get {CalculateSalary()} money");
+            Console.WriteLine($"And pay {CalculateTax()} taxes");
         }
     }
 
@@ -72,7 +72,7 @@ namespace Nothing
         {
             Employee employee = new Employee("Lionel","Messi");
 
-            employee.Information("Player" , 25);
+            employee.SetlInformation("Player" , 25);
 
             employee.ShowInformation();
         }
