@@ -8,20 +8,25 @@ namespace Nothing4
     {
         
 
-        int account;
-        string customer;
-        string provider;
+       private readonly int _account;
+       private readonly string _customer;
+       private readonly string _provider;
 
         private string _article;
         private int _quantity;
 
-        public Invoice(int account,string customer,string provider,string article,int quantity)
+        public Invoice(int account,string customer,string provider)
         {
-            this.account = account;
-            this.customer = customer;
-            this.provider = provider;
-            _article = article;
-            _quantity = quantity;
+            _account = account;
+            _customer = customer;
+            _provider = provider;
+
+        }
+
+        public void SetInformation(string _article,int _quantity)
+        {
+            this._article = _article;
+            this._quantity = _quantity;
 
         }
 
@@ -40,8 +45,8 @@ namespace Nothing4
         {
             Console.OutputEncoding = Encoding.Unicode;
 
-            Console.WriteLine($"Користувач під номером рахунку {account},зробив замовлення в магазин {customer}");
-            Console.WriteLine($"Відправник магазин техніки {provider},відправила товар {_article},у розмірі {_quantity} одиниць.");
+            Console.WriteLine($"Користувач під номером рахунку {_account},зробив замовлення в магазин {_customer}");
+            Console.WriteLine($"Відправник магазин техніки {_provider},відправила товар {_article},у розмірі {_quantity} одиниць.");
             Console.WriteLine($"Ціна становить {CalculateWithoutTax(priceForOne)} грн за одиницю без ПДВ");
             Console.WriteLine($"Ціна з ПДВ становить {CalculateWithTax(priceForOne)} грн");
         }
@@ -52,7 +57,9 @@ namespace Nothing4
     {
         static void Main()
         {
-            Invoice invoice = new Invoice(5, "Rozetka", "Citrus", "Computer", 100);
+            Invoice invoice = new Invoice(5, "Rozetka", "Citrus");
+
+            invoice.SetInformation("Computer", 15);
 
             
             invoice.ShowInfo(35000);
