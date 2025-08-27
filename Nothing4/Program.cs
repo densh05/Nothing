@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
+using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace Nothing3
+namespace Nothing4
 {
-
     class Invoice
     {
+        
+
         int account;
         string customer;
         string provider;
@@ -14,13 +15,14 @@ namespace Nothing3
         private string _article;
         private int _quantity;
 
-        public Invoice(int account, string customer, string provider,string article, int quantity)
+        public Invoice(int account,string customer,string provider,string article,int quantity)
         {
             this.account = account;
             this.customer = customer;
             this.provider = provider;
             _article = article;
             _quantity = quantity;
+
         }
 
         public double CalculateWithoutTax(double priceForOne)
@@ -44,17 +46,16 @@ namespace Nothing3
             Console.WriteLine($"Ціна з ПДВ становить {CalculateWithTax(priceForOne)} грн");
         }
     }
-   
 
-    class Program
+
+    internal class Program
     {
         static void Main()
         {
-            Invoice invoice = new Invoice(5,"Rozetka","Citrus","Computer",10);
+            Invoice invoice = new Invoice(5, "Rozetka", "Citrus", "Computer", 100);
 
-            invoice.ShowInfo(10000);
+            
+            invoice.ShowInfo(35000);
         }
-
     }
-
 }
