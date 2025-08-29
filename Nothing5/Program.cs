@@ -3,13 +3,13 @@ using System.Text;
 
 namespace Nothing5
 {
-    class Converter
+    class Converter //Создання классу 
     {
-        private double _usd;
+        private double _usd;//Робимо змінні
         private double _eur;
         private double _gbt;
 
-        public Converter(double usd, double eur, double gbt)
+        public Converter(double usd, double eur, double gbt)//Ініціалізація змінних,робимо конструктор
         {
             _usd = usd;
             _eur = eur;
