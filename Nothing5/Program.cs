@@ -1,0 +1,92 @@
+﻿using System;
+using System.Text;
+
+namespace Nothing5
+{
+    class Converter
+    {
+        private double _usd;
+        private double _eur;
+        private double _gbt;
+
+        public Converter(double usd, double eur, double gbt)
+        {
+            _usd = usd;
+            _eur = eur;
+            _gbt = gbt;
+        }
+
+         public double fromUahToUsd(double _uah)
+        {
+            return _uah / _usd;
+        }
+        
+        public double fromUahToEur(double _uah)
+        {
+            return _uah / _eur;
+        }
+
+        public double fromUahToGbt(double _uah)
+        {
+            return _uah / _gbt;
+        }
+
+        public double fromUsdToUah(double quantityUsd)
+        {
+            return _usd * quantityUsd;
+        }
+
+        public double fromEurToUah(double quantityEur)
+        {
+            return _eur * quantityEur;
+        }
+
+        public double fromGbtToUah(double quantityGbt)
+        {
+            return _gbt * quantityGbt;
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.OutputEncoding = Encoding.Unicode;
+
+            Converter converter = new Converter(40, 42, 45);
+
+            Console.WriteLine("Привіт,вітаю Вас в нашому обміннику\n");
+            Console.WriteLine("Напишіть суму у гривнях для уточнення інформації:");
+
+            double _uah = Convert.ToDouble(Console.ReadLine());
+
+            double _usd = converter.fromUahToUsd(_uah);
+            double _eur = converter.fromUahToEur(_uah);
+            double _gbt = converter.fromUahToGbt(_uah);
+
+            Console.WriteLine($"{_uah} UAH = {_usd} USD");
+            Console.WriteLine($"{_uah} UAH = {_eur} EUR");
+            Console.WriteLine($"{_uah} UAH = {_gbt} GBT");
+
+            Console.WriteLine("Напишіть суму у USD для уточнення конвертації у гривні:");
+            double usdToUah = Convert.ToDouble(Console.ReadLine()); //Користувач вводить число,число зберігається в double usdToUah
+            double getUsd = converter.fromUsdToUah(usdToUah); //Викликаємо метод fromUsdToUah з класу Converter, передаємо інформацію в метод,метод множить долари на гривні
+            Console.WriteLine($"{usdToUah} USD = {getUsd} UAH"); //Вивід в консоль результат
+
+
+            Console.WriteLine("Напишіть суму у EUR для уточнення конвертації у гривні:");
+            double eurToUah = Convert.ToDouble(Console.ReadLine());
+            double getEur = converter.fromEurToUah(eurToUah);
+            Console.WriteLine($"{eurToUah} EUR = {getEur} UAH");
+
+            Console.WriteLine($"Напишіть суму у GBT для уточнення конвертації у гривні:");
+            double gbtToUah = Convert.ToDouble(Console.ReadLine());
+            double getGbt = converter.fromGbtToUah(gbtToUah);
+            Console.WriteLine($"{gbtToUah} GBT = {getGbt} UAH");
+
+
+            Console.ReadKey();
+
+        }
+    }
+}
